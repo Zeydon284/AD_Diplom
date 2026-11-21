@@ -299,7 +299,7 @@ final_dataset["Inflation_Gap"] = (
     final_dataset["Inflation"] - final_dataset["Inflation_Target"]
 )
 
-# Год группировки данных.
+
 final_dataset["Year"] = final_dataset["Month"].str[:4]
 
 final_dataset.to_csv(
@@ -383,28 +383,28 @@ corr_matrix.to_csv(
 # Динамика ключевой ставки ЦБ
 # ==========================================================================================
 
-# plt.figure(figsize=(12, 6))
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Key_Rate"],
-#     color="blue",
-#     label="Ключевая ставка"
-# )
-#
-# plt.title("Динамика ключевой ставки Банка России")
-# plt.xlabel("Месяц")
-# plt.ylabel("% годовых")
-# plt.xticks(
-#     range(0, len(final_dataset), 12),
-#     final_dataset["Month"].iloc[::12],
-#     rotation=45
-# )
-# plt.grid(alpha=0.3)
-# plt.legend()
-# plt.tight_layout()
-# plt.savefig("figures/01_key_rate.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(12, 6))
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Key_Rate"],
+    color="blue",
+    label="Ключевая ставка"
+)
+
+plt.title("Динамика ключевой ставки Банка России")
+plt.xlabel("Месяц")
+plt.ylabel("% годовых")
+plt.xticks(
+    range(0, len(final_dataset), 12),
+    final_dataset["Month"].iloc[::12],
+    rotation=45
+)
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig("figures/01_key_rate.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
@@ -413,36 +413,36 @@ corr_matrix.to_csv(
 # Динамика инфляции и цели банка РФ
 # ==========================================================================================
 
-# plt.figure(figsize=(12, 6))
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Inflation"],
-#     color="red",
-#     label="Инфляция, % годовых"
-# )
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Inflation_Target"],
-#     color="green",
-#     linestyle="--",
-#     label="Цель по инфляции"
-# )
-#
-# plt.title("Динамика инфляции и цели Банка России")
-# plt.xlabel("Месяц")
-# plt.ylabel("%")
-# plt.xticks(
-#     range(0, len(final_dataset), 12),
-#     final_dataset["Month"].iloc[::12],
-#     rotation=45
-# )
-# plt.grid(alpha=0.3)
-# plt.legend()
-# plt.tight_layout()
-# plt.savefig("figures/02_inflation.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(12, 6))
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Inflation"],
+    color="red",
+    label="Инфляция, % годовых"
+)
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Inflation_Target"],
+    color="green",
+    linestyle="--",
+    label="Цель по инфляции"
+)
+
+plt.title("Динамика инфляции и цели Банка России")
+plt.xlabel("Месяц")
+plt.ylabel("%")
+plt.xticks(
+    range(0, len(final_dataset), 12),
+    final_dataset["Month"].iloc[::12],
+    rotation=45
+)
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig("figures/02_inflation.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
@@ -451,42 +451,42 @@ corr_matrix.to_csv(
 # Сравнение трёх процентных ставок в РФ
 # ==========================================================================================
 
-# plt.figure(figsize=(14, 7))
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Key_Rate"],
-#     label="Ключевая ставка",
-#     color="blue"
-# )
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Credit_Rate"],
-#     label="Ставка по кредитам",
-#     color="red"
-# )
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Deposit_Rate"],
-#     label="Средневзвешенная ставка по вкладам",
-#     color="green"
-# )
-#
-# plt.title("Сравнение процентных ставок в России")
-# plt.xlabel("Месяц")
-# plt.ylabel("% годовых")
-# plt.xticks(
-#     range(0, len(final_dataset), 12),
-#     final_dataset["Month"].iloc[::12],
-#     rotation=45
-# )
-# plt.grid(alpha=0.3)
-# plt.legend()
-# plt.tight_layout()
-# plt.savefig("figures/03_three_rates.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(14, 7))
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Key_Rate"],
+    label="Ключевая ставка",
+    color="blue"
+)
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Credit_Rate"],
+    label="Ставка по кредитам",
+    color="red"
+)
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Deposit_Rate"],
+    label="Средневзвешенная ставка по вкладам",
+    color="green"
+)
+
+plt.title("Сравнение процентных ставок в России")
+plt.xlabel("Месяц")
+plt.ylabel("% годовых")
+plt.xticks(
+    range(0, len(final_dataset), 12),
+    final_dataset["Month"].iloc[::12],
+    rotation=45
+)
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig("figures/03_three_rates.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
@@ -495,36 +495,36 @@ corr_matrix.to_csv(
 # Разница между кредитными и депозитными ставками
 # ==========================================================================================
 
-# plt.figure(figsize=(12, 6))
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     final_dataset["Spread"],
-#     color="purple",
-#     label="Разница ставок"
-# )
-#
-# plt.plot(
-#     final_dataset["Month"],
-#     [0] * len(final_dataset),
-#     color="black",
-#     linestyle="--",
-#     label="Нулевая линия"
-# )
-#
-# plt.title("Разница между ставками по кредитам и вкладам")
-# plt.xlabel("Месяц")
-# plt.ylabel("Процентные пункты")
-# plt.xticks(
-#     range(0, len(final_dataset), 12),
-#     final_dataset["Month"].iloc[::12],
-#     rotation=45
-# )
-# plt.grid(alpha=0.3)
-# plt.legend()
-# plt.tight_layout()
-# plt.savefig("figures/04_spread.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(12, 6))
+
+plt.plot(
+    final_dataset["Month"],
+    final_dataset["Spread"],
+    color="purple",
+    label="Разница ставок"
+)
+
+plt.plot(
+    final_dataset["Month"],
+    [0] * len(final_dataset),
+    color="black",
+    linestyle="--",
+    label="Нулевая линия"
+)
+
+plt.title("Разница между ставками по кредитам и вкладам")
+plt.xlabel("Месяц")
+plt.ylabel("Процентные пункты")
+plt.xticks(
+    range(0, len(final_dataset), 12),
+    final_dataset["Month"].iloc[::12],
+    rotation=45
+)
+plt.grid(alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig("figures/04_spread.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
@@ -534,22 +534,22 @@ corr_matrix.to_csv(
 # Диаграмма рассеивания
 # ==========================================================================================
 
-# plt.figure(figsize=(9, 6))
-#
-# plt.scatter(
-#     final_dataset["Key_Rate"],
-#     final_dataset["Credit_Rate"],
-#     color="red",
-#     alpha=0.6
-# )
-#
-# plt.title("Связь ключевой ставки и ставки по кредитам")
-# plt.xlabel("Ключевая ставка, %")
-# plt.ylabel("Ставка по кредитам, %")
-# plt.grid(alpha=0.3)
-# plt.tight_layout()
-# plt.savefig("figures/05_credit_scatter.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(9, 6))
+
+plt.scatter(
+    final_dataset["Key_Rate"],
+    final_dataset["Credit_Rate"],
+    color="red",
+    alpha=0.6
+)
+
+plt.title("Связь ключевой ставки и ставки по кредитам")
+plt.xlabel("Ключевая ставка, %")
+plt.ylabel("Ставка по кредитам, %")
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.savefig("figures/05_credit_scatter.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
@@ -558,19 +558,19 @@ corr_matrix.to_csv(
 # Корреляционная тепловая карта
 # ==========================================================================================
 
-# plt.figure(figsize=(9, 7))
-#
-# sns.heatmap(
-#     corr_matrix,
-#     annot=True,
-#     cmap="coolwarm",
-#     fmt=".2f"
-# )
-#
-# plt.title("Корреляционная матрица процентных и инфляционных показателей")
-# plt.tight_layout()
-# plt.savefig("figures/06_correlation_heatmap.png", dpi=300, bbox_inches="tight")
-# plt.show()
+plt.figure(figsize=(9, 7))
+
+sns.heatmap(
+    corr_matrix,
+    annot=True,
+    cmap="coolwarm",
+    fmt=".2f"
+)
+
+plt.title("Корреляционная матрица процентных и инфляционных показателей")
+plt.tight_layout()
+plt.savefig("figures/06_correlation_heatmap.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 
 
